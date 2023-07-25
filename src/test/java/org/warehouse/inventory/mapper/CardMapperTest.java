@@ -9,7 +9,7 @@ import org.warehouse.inventory.entity.Card;
 import java.time.LocalDateTime;
 
 public class CardMapperTest {
-    private final CardMapper cardMapper = new CardMapperImpl();
+    private final CardMapper mapper = new CardMapperImpl();
 
     @Test
     @DisplayName(value = "CardToDto")
@@ -18,7 +18,7 @@ public class CardMapperTest {
         Card card = new Card("101101", "TestCard", "psc", LocalDateTime.now());
         CardDto expected = new CardDto("101101", "TestCard", "psc");
 //        when
-        CardDto actual = cardMapper.CardToDto(card);
+        CardDto actual = mapper.CardToDto(card);
 //        then
         Assertions.assertThat(actual).isEqualTo(expected);
     }
@@ -29,7 +29,7 @@ public class CardMapperTest {
         CardDto cardDto = new CardDto("101101", "TestCard", "psc");
         Card expected = new Card("101101", "TestCard", "psc", null);
 
-        Card actual = cardMapper.DtoToCard(cardDto);
+        Card actual = mapper.DtoToCard(cardDto);
 
         Assertions.assertThat(actual).isEqualTo(expected);
     }
